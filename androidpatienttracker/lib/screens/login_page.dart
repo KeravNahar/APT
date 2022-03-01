@@ -22,6 +22,16 @@ class _LoginState extends State<LoginPage>{
           email: email.text,
           password: password.text
       );
+      if (userCredential == null) {
+        setState(() {
+          SnackBar(content: Text("Email or password are invalid."));
+          loading = false;
+        });
+      }
+      else {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => HomePage()),);
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         globalKey.currentState!.showSnackBar(
