@@ -84,7 +84,6 @@ class _LoginState extends State<LoginPage>{
     }
     else{
       loginAuth();
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()),);
     }
   }
   @override
